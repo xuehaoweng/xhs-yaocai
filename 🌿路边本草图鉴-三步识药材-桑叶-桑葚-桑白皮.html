@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            position: relative; /* 使右上角按钮定位生效 */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2d5f4a;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .plant-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d5f4a;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        /* 截图按钮样式 */
+        .screenshot-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .screenshot-button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-button">← 返回首页</a>
+    
+    <!-- 截图按钮 -->
+    <button class="screenshot-button" onclick="captureScreenshot()">📸 截图</button>
+
+    <div class="container">
+        <h1>🌿路边本草图鉴 | 三步识药材</h1>
+
+        <div class="card">
+            <h2>桑叶 | 疏散风热叶</h2>
+            <div class="plant-img" style="background: #e3f2e7; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/sangye.jpg">
+            </div>
+            <p>叶片卵形有锯齿，表面光滑背面毛。疏散风热，清肺润燥，可泡茶饮用。</p>
+            <div class="tag">📌桑园路边常见</div>
+            <div class="tag">💊含桑叶素</div>
+        </div>
+
+        <div class="card">
+            <h2>桑葚 | 滋补肝肾果</h2>
+            <div class="plant-img" style="background: #fff3e0; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/sangshen.jpg">
+            </div>
+            <p>果实聚合紫黑色，味甘性平滋补强。滋补肝肾，养血明目，可鲜食制酒。</p>
+            <div class="tag">📌桑园庭院常见</div>
+            <div class="tag">💊含花青素</div>
+        </div>
+
+        <div class="card">
+            <h2>桑白皮 | 泻肺平喘皮</h2>
+            <div class="plant-img" style="background: #e8f5e9; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/sangbaipi.jpg">
+            </div>
+            <p>根皮黄白纤维状，断面有丝状物。泻肺平喘，利水消肿，可煎汤服用。</p>
+            <div class="tag">📌桑园栽培常见</div>
+            <div class="tag">💊含桑白皮素</div>
+        </div>
+        
+        <p style="text-align: center; color: #666; font-size: 0.9em;">🌱遇见请珍惜 勿过度采摘 | 药用请遵医嘱</p>
+    </div>
+
+    <script>
+        // 截图功能实现
+        function captureScreenshot() {
+            // 使用 html2canvas 对整个页面进行截图
+            html2canvas(document.body).then(function(canvas) {
+                // 将生成的 canvas 转换为图片数据 URL
+                const imgData = canvas.toDataURL('image/png');
+
+                // 创建一个隐藏的<a>标签用于下载
+                const link = document.createElement('a');
+                link.href = imgData;
+                link.download = 'screenshot.png'; // 设置下载文件名
+
+                // 触发下载
+                document.body.appendChild(link);
+                link.click();
+
+                // 移除临时创建的<a>标签
+                document.body.removeChild(link);
+            });
+        }
+    </script>
+</body>
+</html> 

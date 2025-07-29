@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 路边本草图鉴 - 三步识药材</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #2d5f4a 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.3em;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .herb-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .herb-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .herb-list li:last-child {
+            border-bottom: none;
+        }
+        .herb-name {
+            font-weight: 500;
+            color: #333;
+        }
+        .herb-desc {
+            color: #666;
+            font-size: 0.9em;
+        }
+        .view-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .view-btn:hover {
+            background: #45a049;
+        }
+        .footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .feature {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        .feature-icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            color: #856404;
+        }
+        .warning h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌿 路边本草图鉴</h1>
+            <p>三步识药材 · 传承中华医药文化</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <p>这是一个专注于路边常见中药材识别的图鉴项目，采用"三步识药材"的方法，帮助人们快速识别和了解身边的中草药。</p>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">🔍</div>
+                    <h3>三步识别法</h3>
+                    <p>通过形态特征、生长环境、药用价值三个维度快速识别药材</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📸</div>
+                    <h3>一键截图</h3>
+                    <p>支持将图鉴内容保存为图片分享给朋友</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📱</div>
+                    <h3>响应式设计</h3>
+                    <p>适配手机和电脑屏幕，随时随地查看</p>
+                </div>
+            </div>
+
+            <div class="warning">
+                <h4>⚠️ 重要提醒</h4>
+                <p>遇见请珍惜，勿过度采摘。药用请遵医嘱，不可自行服用。部分药材可能有毒性，请谨慎对待，建议在专业人士指导下使用。</p>
+            </div>
+
+            <div class="gallery">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第一组：车前草、蒲公英、艾草</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">车前草</span>
+                                <span class="herb-desc">利尿明目草</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">蒲公英</span>
+                                <span class="herb-desc">天然抗生素</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">艾草</span>
+                                <span class="herb-desc">驱邪清香草</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-车前草-蒲公英-艾草.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第二组：紫苏、薄荷、金银花</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">紫苏</span>
+                                <span class="herb-desc">解表散寒行气</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">薄荷</span>
+                                <span class="herb-desc">清凉解毒草</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">金银花</span>
+                                <span class="herb-desc">清热解毒花</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-紫苏-薄荷-金银花.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第三组：凤仙花、三七、田七</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">凤仙花</span>
+                                <span class="herb-desc">活血化瘀花</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">三七</span>
+                                <span class="herb-desc">止血化瘀根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">田七</span>
+                                <span class="herb-desc">活血止痛根</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-凤仙花-三七-田七.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第四组：夏枯草、益母草、马齿苋</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">夏枯草</span>
+                                <span class="herb-desc">清热明目草</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">益母草</span>
+                                <span class="herb-desc">调经活血草</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">马齿苋</span>
+                                <span class="herb-desc">清热解毒菜</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-夏枯草-益母草-马齿苋.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第五组：桔梗、虎杖、鱼腥草</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">桔梗</span>
+                                <span class="herb-desc">宣肺利咽根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">虎杖</span>
+                                <span class="herb-desc">活血化瘀根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">鱼腥草</span>
+                                <span class="herb-desc">清热解毒草</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-桔梗-虎杖-鱼腥草.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第六组：灯心草、苍耳子、龙葵</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">灯心草</span>
+                                <span class="herb-desc">清热利水草</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">苍耳子</span>
+                                <span class="herb-desc">祛风除湿果</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">龙葵</span>
+                                <span class="herb-desc">清热解毒草</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-灯心草-苍耳子-龙葵.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第七组：板蓝根、连翘、野菊花</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">板蓝根</span>
+                                <span class="herb-desc">清热解毒根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">连翘</span>
+                                <span class="herb-desc">清热解毒果</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">野菊花</span>
+                                <span class="herb-desc">清热解毒花</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-板蓝根-连翘-野菊花.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第八组：决明子、山楂、枸杞</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">决明子</span>
+                                <span class="herb-desc">明目润肠子</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">山楂</span>
+                                <span class="herb-desc">消食化滞果</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">枸杞</span>
+                                <span class="herb-desc">滋补明目果</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-决明子-山楂-枸杞.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第九组：白茅根、芦根、淡竹叶</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">白茅根</span>
+                                <span class="herb-desc">清热利尿根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">芦根</span>
+                                <span class="herb-desc">清热生津根</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">淡竹叶</span>
+                                <span class="herb-desc">清热除烦叶</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-白茅根-芦根-淡竹叶.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第十组：桑叶、桑葚、桑白皮</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">桑叶</span>
+                                <span class="herb-desc">疏散风热叶</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">桑葚</span>
+                                <span class="herb-desc">滋补肝肾果</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">桑白皮</span>
+                                <span class="herb-desc">泻肺平喘皮</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-桑叶-桑葚-桑白皮.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第十一组：槐花、槐角、槐米</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">槐花</span>
+                                <span class="herb-desc">凉血止血花</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">槐角</span>
+                                <span class="herb-desc">清热润肠角</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">槐米</span>
+                                <span class="herb-desc">清热明目米</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-槐花-槐角-槐米.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第十二组：菊花、金银花、玫瑰花</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">菊花</span>
+                                <span class="herb-desc">疏散风热花</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">金银花</span>
+                                <span class="herb-desc">清热解毒花</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">玫瑰花</span>
+                                <span class="herb-desc">理气活血花</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-菊花-金银花-玫瑰花.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第十三组：陈皮、青皮、橘红</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">陈皮</span>
+                                <span class="herb-desc">理气健脾皮</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">青皮</span>
+                                <span class="herb-desc">疏肝破气皮</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">橘红</span>
+                                <span class="herb-desc">理气宽中皮</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-陈皮-青皮-橘红.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>第十四组：酸枣仁、柏子仁、火麻仁</h3>
+                    </div>
+                    <div class="card-content">
+                        <ul class="herb-list">
+                            <li>
+                                <span class="herb-name">酸枣仁</span>
+                                <span class="herb-desc">养心安神仁</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">柏子仁</span>
+                                <span class="herb-desc">养心安神仁</span>
+                            </li>
+                            <li>
+                                <span class="herb-name">火麻仁</span>
+                                <span class="herb-desc">润燥滑肠仁</span>
+                            </li>
+                        </ul>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="🌿路边本草图鉴-三步识药材-酸枣仁-柏子仁-火麻仁.html" class="view-btn">查看图鉴</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🌱 让更多人了解身边的中草药，传承中华医药文化 🌱</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">© 2024 路边本草图鉴项目</p>
+        </div>
+    </div>
+</body>
+</html> 

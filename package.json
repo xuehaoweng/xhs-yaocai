@@ -1,0 +1,35 @@
+{
+  "name": "roadside-herb-guide",
+  "version": "1.0.0",
+  "description": "路边本草图鉴 - 三步识药材，帮助人们快速识别和了解身边的中草药",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "npx http-server -p 8000 -o",
+    "serve": "npx http-server -p 8000",
+    "build": "echo '静态HTML项目，无需构建'"
+  },
+  "keywords": [
+    "中草药",
+    "本草图鉴",
+    "药材识别",
+    "中医药",
+    "传统文化"
+  ],
+  "author": "路边本草图鉴团队",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/roadside-herb-guide.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/roadside-herb-guide/issues"
+  },
+  "homepage": "https://github.com/your-username/roadside-herb-guide#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            position: relative; /* 使右上角按钮定位生效 */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white; /* 设置背景色以便于截图 */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2d5f4a;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .plant-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d5f4a;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        /* 截图按钮样式 */
+        .screenshot-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .screenshot-button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-button">← 返回首页</a>
+    
+    <button class="screenshot-button" onclick="captureScreenshot()">📸 截图</button>
+
+    <div class="container">
+        <h1>🌿路边本草图鉴 | 三步识药材</h1>
+
+        <!-- 紫苏 -->
+        <div class="card">
+            <h2>紫苏 | 解表散寒行气</h2>
+            <div class="plant-img" style="background: #e3f2e7; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/6abc07277ef11ddac7451ff7438a2f86.jpg">
+            </div>
+            <p>叶对生紫绿色，卵形锯齿边。解表散寒，行气和胃，可煮水产去腥。</p>
+            <div class="tag">📌房前屋后常见</div>
+            <div class="tag">💊含紫苏醛</div>
+        </div>
+
+        <!-- 薄荷 -->
+        <div class="card">
+            <h2>薄荷 | 清凉解毒草</h2>
+            <div class="plant-img" style="background: #fff3e0; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/11e6998410dc7a7d369f743a087640c5.jpg">
+            </div>
+            <p>茎四棱叶对生，清凉香气提神。疏散风热，清利头目，可泡茶做香料。</p>
+            <div class="tag">📌水边湿地常见</div>
+            <div class="tag">            💡含薄荷醇</div>
+        </div>
+
+        <!-- 车前草 -->
+        <div class="card">
+            <h2>车前草 | 清热利尿草</h2>
+            <div class="plant-img" style="background: #e8f5e9; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/Snipaste_2025-02-13_16-09-04.png">
+            </div>
+            <p>叶基生呈莲座状，清热利尿止咳。可煮汤凉拌食用。</p>
+            <div class="tag">📌路边田间常见</div>
+            <div class="tag">💊含车前苷</div>
+        </div>
+    </div>
+
+    <script>
+        // 截图功能函数
+        function captureScreenshot() {
+            // 使用 html2canvas 捕获 .container 区域的内容
+            html2canvas(document.querySelector(".container"), {
+                scale: 2, // 提高截图清晰度
+                useCORS: true, // 支持跨域图片
+                logging: false, // 关闭日志输出
+                allowTaint: false // 防止污染画布
+            }).then(canvas => {
+                // 将 canvas 转换为图片链接
+                const imgData = canvas.toDataURL("image/png");
+
+                // 创建一个临时的 a 标签用于下载
+                const link = document.createElement("a");
+                link.href = imgData;
+                link.download = "long-screenshot.png"; // 下载文件名
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>

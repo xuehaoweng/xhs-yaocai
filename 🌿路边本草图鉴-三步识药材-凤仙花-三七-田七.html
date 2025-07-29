@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            position: relative; /* 使右上角按钮定位生效 */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2d5f4a;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .plant-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d5f4a;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        /* 截图按钮样式 */
+        .screenshot-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .screenshot-button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-button">← 返回首页</a>
+    
+    <button class="screenshot-button" onclick="captureScreenshot()">📸 截图</button>
+
+    <div class="container">
+        <h1>🌿路边本草图鉴 | 三步识药材</h1>
+
+        <!-- 凤仙花 -->
+        <div class="card">
+            <h2>凤仙花 | 祛风活血解毒</h2>
+            <div class="plant-img" style="background: #f5e1f0; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/c6c749385f26468eabcc9663963f3f8a.jpg">
+            </div>
+            <p>茎肉质叶互生，花色多样易栽培。祛风除湿，活血止痛，可捣汁治甲沟炎。</p>
+            <div class="tag">📌庭院花卉常见</div>
+            <div class="tag">💊含指甲花醌</div>
+        </div>
+		<!-- 太阳花（替换原三七） -->
+         <div class="card">
+            <h2>太阳花 | 清热解毒消肿</h2>
+            <div class="plant-img" style="background: #fff8e1; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/284cf66f606b9d9e8bcb022579d5b7f9.jpeg">
+            </div>
+            <p>日开夜合向阳生，肉质茎叶耐旱强。清热解毒，消肿止痛，可外敷治疮疖。</p>
+            <div class="tag">📌干旱地区常见</div>
+            <div class="tag">💊含甜菜红素</div>
+        </div>
+
+        <!-- 田七 -->
+        <div class="card">
+            <h2>田七 | 补血活血通络</h2>
+            <div class="plant-img" style="background: #fff3e0; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/381d1b475598e2edd55f6df5c8cce9e6.jpeg">
+            </div>
+            <p>同属五加科人参属，主产云南文山。补血强身，活血通经，可炖汤滋补养生。</p>
+            <div class="tag">📌云南特产药材</div>
+            <div class="tag">💊含人参皂苷</div>
+        </div>
+
+        <p style="text-align: center; color: #666; font-size: 0.9em;">🌱遇见请珍惜 勿过度采摘 | 药用请遵医嘱</p>
+    </div>
+</body>
+</html>

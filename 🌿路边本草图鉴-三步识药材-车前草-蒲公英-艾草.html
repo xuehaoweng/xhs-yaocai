@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+            position: relative; /* 使右上角按钮定位生效 */
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2d5f4a;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-top: 0;
+        }
+        .plant-img {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin: 10px 0;
+        }
+        .tag {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2d5f4a;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+
+        /* 截图按钮样式 */
+        .screenshot-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .screenshot-button:hover {
+            background-color: #3e8e41;
+        }
+
+        /* 返回按钮样式 */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #666;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .back-button:hover {
+            background-color: #555;
+        }
+    </style>
+
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- 返回按钮 -->
+    <a href="index.html" class="back-button">← 返回首页</a>
+    
+    <!-- 截图按钮 -->
+    <button class="screenshot-button" onclick="captureScreenshot()">📸 截图</button>
+
+    <div class="container">
+        <h1>🌿路边本草图鉴 | 三步识药材</h1>
+
+        <div class="card">
+            <h2>车前草 | 利尿明目草</h2>
+            <div class="plant-img" style="background: #e3f2e7; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/fec89e3d5966c9a00b668858df0d3c07.jpeg"></img>
+            </div>
+            <p>叶片似猪耳，穗状花序直立。全草入药，清热利尿，祛痰止咳，可煮凉茶。</p>
+            <div class="tag">📌道边湿草地常见</div>
+            <div class="tag">💊主含桃叶珊瑚苷</div>
+        </div>
+
+        <div class="card">
+            <h2>蒲公英 | 天然抗生素</h2>
+            <div class="plant-img" style="background: #fff3e0; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/051ee5a2163fae7bf0dc6321ff0333fb.jpeg"></img>
+            </div>
+            <p>黄花变绒球，白伞随风扬。根叶可入药，清热解毒，保肝利胆，可做野菜食。</p>
+            <div class="tag">📌田野路边随处见</div>
+            <div class="tag">💊富含蒲公英醇</div>
+        </div>
+
+        <div class="card">
+            <h2>艾草 | 驱邪清香草</h2>
+            <div class="plant-img" style="background: #e8f5e9; text-align: center">
+                <img width="100%" height="200px" src="https://self-bucket-1258377547.cos.ap-shanghai.myqcloud.com/picgo-test/aba9ca2d91b523cca0aa33331532701f.jpeg"></img>
+            </div>
+            <p>叶背泛白绒，香气独特浓。温经止血，散寒调经，艾灸常用，可制青团。</p>
+            <div class="tag">📌荒地田埂常成丛</div>
+            <div class="tag">
+			            <div class="tag">💊含桉油精成分</div>
+        </div>
+        
+        <p style="text-align: center; color: #666; font-size: 0.9em;">🌱遇见请珍惜 勿过度采摘 | 药用请遵医嘱</p>
+    </div>
+
+    <script>
+        // 截图功能实现
+        function captureScreenshot() {
+            // 使用 html2canvas 对整个页面进行截图
+            html2canvas(document.body).then(function(canvas) {
+                // 将生成的 canvas 转换为图片数据 URL
+                const imgData = canvas.toDataURL('image/png');
+
+                // 创建一个隐藏的<a>标签用于下载
+                const link = document.createElement('a');
+                link.href = imgData;
+                link.download = 'screenshot.png'; // 设置下载文件名
+
+                // 触发下载
+                document.body.appendChild(link);
+                link.click();
+
+                // 移除临时创建的<a>标签
+                document.body.removeChild(link);
+            });
+        }
+    </script>
+</body>
+</html>
