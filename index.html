@@ -149,6 +149,117 @@
             margin: 0 0 10px 0;
             color: #856404;
         }
+        /* AI Generator */
+        .ai-generator {
+            background: linear-gradient(135deg, #f0f9f0 0%, #e8f5e9 100%);
+            border: 2px solid #4CAF50;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+        .ai-generator h2 {
+            color: #2d5f4a;
+            margin: 0 0 8px 0;
+            font-size: 1.5em;
+        }
+        .ai-generator .subtitle {
+            color: #666;
+            margin: 0 0 24px 0;
+            font-size: 0.95em;
+        }
+        .ai-form-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .ai-form-row label {
+            display: block;
+            font-size: 0.85em;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        .ai-form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        .ai-form-group.full { flex: 100%; }
+        .ai-input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 0.95em;
+            box-sizing: border-box;
+            background: white;
+            transition: border-color 0.2s;
+        }
+        .ai-input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76,175,80,0.15);
+        }
+        .ai-input[type="password"] { letter-spacing: 0.1em; }
+        .ai-key-hint {
+            font-size: 0.8em;
+            color: #888;
+            margin-top: 4px;
+        }
+        .ai-key-hint a { color: #4CAF50; }
+        .generate-btn {
+            background: linear-gradient(135deg, #4CAF50 0%, #2d5f4a 100%);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: opacity 0.2s, transform 0.1s;
+            white-space: nowrap;
+        }
+        .generate-btn:hover { opacity: 0.9; }
+        .generate-btn:active { transform: scale(0.98); }
+        .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+        .ai-status {
+            margin-top: 14px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            display: none;
+        }
+        .ai-status.loading { background: #e3f2fd; color: #1565c0; display: block; }
+        .ai-status.error   { background: #ffebee; color: #c62828; display: block; }
+        .ai-status.success { background: #e8f5e9; color: #2e7d32; display: block; }
+        .ai-preview {
+            margin-top: 20px;
+            display: none;
+        }
+        .ai-preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .ai-preview-header h3 { margin: 0; color: #2d5f4a; font-size: 1em; }
+        .download-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background 0.2s;
+        }
+        .download-btn:hover { background: #45a049; }
+        .ai-preview iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #c8e6c9;
+            border-radius: 8px;
+            background: white;
+        }
     </style>
 </head>
 <body>
@@ -207,7 +318,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-车前草-蒲公英-艾草.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-01-cheqiancao-pugongying-aicao.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -232,7 +343,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-紫苏-薄荷-金银花.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-02-zisu-bohe-jinyinhua.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -257,7 +368,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-凤仙花-三七-田七.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-03-fengxianhua-sanqi-tianqi.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -282,7 +393,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-夏枯草-益母草-马齿苋.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-04-xiakucao-yimucao-machixian.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -307,7 +418,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-桔梗-虎杖-鱼腥草.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-05-jiegeng-huzhang-yuxingcao.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -332,7 +443,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-灯心草-苍耳子-龙葵.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-06-dengxincao-cangerzi-longkui.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -357,7 +468,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-板蓝根-连翘-野菊花.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-07-banlangen-lianqiao-yejuhua.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -382,7 +493,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-决明子-山楂-枸杞.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-08-juemingzi-shanzha-gouqi.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -407,7 +518,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-白茅根-芦根-淡竹叶.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-09-baimaogen-lugen-danzhuye.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -432,7 +543,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-桑叶-桑葚-桑白皮.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-10-sangye-sangshen-sangbaipi.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -457,7 +568,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-槐花-槐角-槐米.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-11-huaihua-huaijiao-huaimi.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -482,7 +593,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-菊花-金银花-玫瑰花.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-12-juhua-jinyinhua-meiguihua.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -507,7 +618,7 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-陈皮-青皮-橘红.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-13-chenpi-qingpi-juhong.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
@@ -532,17 +643,175 @@
                             </li>
                         </ul>
                         <div style="text-align: center; margin-top: 15px;">
-                            <a href="🌿路边本草图鉴-三步识药材-酸枣仁-柏子仁-火麻仁.html" class="view-btn">查看图鉴</a>
+                            <a href="herbs-14-suanzaoren-baiziren-huomaren.html" class="view-btn">查看图鉴</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- AI Generator Section -->
+        <div class="content" id="ai-generator-section">
+            <div class="ai-generator">
+                <h2>✨ AI 草药图鉴生成器</h2>
+                <p class="subtitle">输入草药名称，AI 自动生成图鉴页面，可在线预览并下载 HTML 文件</p>
+
+                <div class="ai-form-row">
+                    <div class="ai-form-group full">
+                        <label>Anthropic API Key</label>
+                        <input type="password" id="api-key" class="ai-input"
+                            placeholder="sk-ant-..." autocomplete="off">
+                        <p class="ai-key-hint">Key 仅存储在本地浏览器，不会上传。
+                            <a href="https://console.anthropic.com/" target="_blank" rel="noopener">获取 API Key →</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="ai-form-row">
+                    <div class="ai-form-group">
+                        <label>草药名称（1-3 个，逗号分隔）</label>
+                        <input type="text" id="herb-names" class="ai-input"
+                            placeholder="例如：黄芪、当归、党参">
+                    </div>
+                    <div style="display:flex;align-items:flex-end;">
+                        <button class="generate-btn" id="generate-btn" onclick="generateHerbPage()">
+                            生成图鉴
+                        </button>
+                    </div>
+                </div>
+
+                <div class="ai-status" id="ai-status"></div>
+
+                <div class="ai-preview" id="ai-preview">
+                    <div class="ai-preview-header">
+                        <h3>预览</h3>
+                        <button class="download-btn" id="download-btn" onclick="downloadHtml()">下载 HTML</button>
+                    </div>
+                    <iframe id="preview-frame" sandbox="allow-scripts allow-same-origin"></iframe>
+                </div>
+            </div>
+        </div>
+
         <div class="footer">
             <p>🌱 让更多人了解身边的中草药，传承中华医药文化 🌱</p>
-            <p style="font-size: 0.9em; margin-top: 10px;">© 2024 路边本草图鉴项目</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">© 2024 路边本草图鉴项目 · <a href="https://github.com/xuehaoweng/xhs-yaocai" style="color:#4CAF50;">GitHub</a></p>
         </div>
     </div>
+
+<script>
+(function () {
+    const KEY_STORAGE = 'herb_guide_api_key';
+
+    // Restore saved key on load
+    const saved = localStorage.getItem(KEY_STORAGE);
+    if (saved) document.getElementById('api-key').value = saved;
+
+    window.generateHerbPage = async function () {
+        const apiKey = document.getElementById('api-key').value.trim();
+        const herbInput = document.getElementById('herb-names').value.trim();
+        const btn = document.getElementById('generate-btn');
+        const status = document.getElementById('ai-status');
+
+        if (!apiKey) return showStatus('error', '请先填写 Anthropic API Key');
+        if (!herbInput) return showStatus('error', '请输入草药名称');
+
+        const herbs = herbInput.split(/[,，、\s]+/).filter(Boolean).slice(0, 3);
+        if (herbs.length === 0) return showStatus('error', '请输入有效的草药名称');
+
+        localStorage.setItem(KEY_STORAGE, apiKey);
+        btn.disabled = true;
+        showStatus('loading', `正在生成「${herbs.join('、')}」图鉴，请稍候...`);
+        document.getElementById('ai-preview').style.display = 'none';
+
+        const prompt = buildPrompt(herbs);
+
+        try {
+            const res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'x-api-key': apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'content-type': 'application/json',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-haiku-4-5-20251001',
+                    max_tokens: 4096,
+                    messages: [{ role: 'user', content: prompt }]
+                })
+            });
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.error?.message || `HTTP ${res.status}`);
+            }
+
+            const data = await res.json();
+            const html = extractHtml(data.content[0].text);
+            if (!html) throw new Error('AI 返回内容格式异常，请重试');
+
+            window._generatedHtml = html;
+            window._generatedHerbs = herbs;
+
+            const frame = document.getElementById('preview-frame');
+            frame.srcdoc = html;
+            document.getElementById('ai-preview').style.display = 'block';
+            showStatus('success', `生成成功！共 ${herbs.length} 种草药`);
+        } catch (e) {
+            showStatus('error', '生成失败：' + e.message);
+        } finally {
+            btn.disabled = false;
+        }
+    };
+
+    window.downloadHtml = function () {
+        if (!window._generatedHtml) return;
+        const herbs = (window._generatedHerbs || ['herb']).map(h =>
+            h.replace(/\s+/g, '-')
+        ).join('-');
+        const filename = `herbs-ai-${herbs}.html`;
+        const blob = new Blob([window._generatedHtml], { type: 'text/html;charset=utf-8' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = filename;
+        a.click();
+        URL.revokeObjectURL(a.href);
+    };
+
+    function showStatus(type, msg) {
+        const el = document.getElementById('ai-status');
+        el.className = 'ai-status ' + type;
+        el.textContent = msg;
+    }
+
+    function extractHtml(text) {
+        const m = text.match(/```html\s*([\s\S]*?)```/i) ||
+                  text.match(/(<!DOCTYPE[\s\S]*<\/html>)/i);
+        return m ? m[1].trim() : null;
+    }
+
+    function buildPrompt(herbs) {
+        return `你是一位中医药科普专家。请为以下草药生成一个完整的中草药图鉴 HTML 页面。
+
+草药列表：${herbs.join('、')}
+
+要求：
+1. 输出完整的 HTML 文件（包含 <!DOCTYPE html> 到 </html>）
+2. 页面风格参考以下模板，保持绿色主题（#4CAF50、#2d5f4a）
+3. 每种草药一个卡片，包含：
+   - 草药名称和简短别称（如"利尿明目草"）
+   - 2-3 句描述（形态特征 + 药用功效 + 使用方法）
+   - 生长环境标签（📌）
+   - 主要成分标签（💊）
+   - 图片区域用纯色背景占位（不要使用外部图片链接）
+4. 页面顶部有"← 返回首页"按钮（href="index.html"）和"📸 截图"按钮
+5. 页面底部加安全提醒：遇见请珍惜 勿过度采摘 | 药用请遵医嘱
+6. 引入 html2canvas 截图功能：https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js
+7. 内容要准确，基于真实的中医药知识
+
+请直接输出完整 HTML，用 \`\`\`html 代码块包裹。`;
+    }
+})();
+</script>
 </body>
 </html> 

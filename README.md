@@ -1,164 +1,102 @@
 # 🌿 路边本草图鉴 - 三步识药材
 
-## 项目简介
+> 帮助人们快速识别和了解身边的中草药，传承中华医药文化。
 
-这是一个专注于路边常见中药材识别的图鉴项目，采用"三步识药材"的方法，帮助人们快速识别和了解身边的中草药。
+[![Deploy to GitHub Pages](https://github.com/xuehaoweng/xhs-yaocai/actions/workflows/deploy.yml/badge.svg)](https://github.com/xuehaoweng/xhs-yaocai/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+**在线访问：** https://xuehaoweng.github.io/xhs-yaocai
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/xuehaoweng/xhs-yaocai)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/xuehaoweng/xhs-yaocai)
+
+---
 
 ## 项目特色
 
-- **三步识别法**：通过形态特征、生长环境、药用价值三个维度快速识别药材
-- **精美图鉴**：每个药材都配有高清图片和详细说明
-- **实用标签**：包含生长环境、主要成分等实用信息
-- **一键截图**：支持将图鉴内容保存为图片分享
+- **三步识别法**：形态特征、生长环境、药用价值三维度快速识别
+- **14 组图鉴**：涵盖 42 种路边常见中草药
+- **AI 生成器**：输入草药名，自动生成图鉴页面（需要 Anthropic API Key）
+- **一键截图**：将图鉴保存为图片分享
+- **响应式设计**：手机和电脑均可流畅使用
 
-## 药材目录
+## 快速开始
 
-### 第一组：车前草、蒲公英、艾草
-- **车前草**：利尿明目草，道边湿草地常见
-- **蒲公英**：天然抗生素，田野路边随处见  
-- **艾草**：驱邪清香草，荒地田埂常成丛
+### 方式一：直接访问在线版
 
-### 第二组：紫苏、薄荷、金银花
-- **紫苏**：解表散寒行气，房前屋后常见
-- **薄荷**：清凉解毒草，水边湿地常见
-- **金银花**：清热解毒花，攀援灌木常见
+打开 https://xuehaoweng.github.io/xhs-yaocai 即可使用。
 
-### 第三组：凤仙花、三七、田七
-- **凤仙花**：活血化瘀花，庭院观赏常见
-- **三七**：止血化瘀根，山地林下常见
-- **田七**：活血止痛根，田间地头常见
+### 方式二：一键部署到自己的账号
 
-### 第四组：夏枯草、益母草、马齿苋
-- **夏枯草**：清热明目草，山坡草地常见
-- **益母草**：调经活血草，田野路边常见
-- **马齿苋**：清热解毒菜，田间地头常见
+点击上方 "Deploy to Netlify" 或 "Deploy with Vercel" 按钮，fork 并部署到自己的域名。
 
-### 第五组：桔梗、虎杖、鱼腥草
-- **桔梗**：宣肺利咽根，山坡草地常见
-- **虎杖**：活血化瘀根，山地林下常见
-- **鱼腥草**：清热解毒草，水边湿地常见
+### 方式三：本地运行
 
-### 第六组：灯心草、苍耳子、龙葵
-- **灯心草**：清热利水草，水边湿地常见
-- **苍耳子**：祛风除湿果，田野路边常见
-- **龙葵**：清热解毒草，田间地头常见
-
-### 第七组：板蓝根、连翘、野菊花
-- **板蓝根**：清热解毒根，栽培药材常见
-- **连翘**：清热解毒果，山坡林下常见
-- **野菊花**：清热解毒花，山坡草地遍分布
-
-### 第八组：决明子、山楂、枸杞
-- **决明子**：明目润肠子，栽培药材常见
-- **山楂**：消食化滞果，山坡林下常见
-- **枸杞**：滋补明目果，西北地区常见
-
-### 第九组：白茅根、芦根、淡竹叶
-- **白茅根**：清热利尿根，河滩草地常见
-- **芦根**：清热生津根，水边湿地常见
-- **淡竹叶**：清热除烦叶，竹林山地常见
-
-### 第十组：桑叶、桑葚、桑白皮
-- **桑叶**：疏散风热叶，桑园路边常见
-- **桑葚**：滋补肝肾果，桑园庭院常见
-- **桑白皮**：泻肺平喘皮，桑园栽培常见
-
-### 第十一组：槐花、槐角、槐米
-- **槐花**：凉血止血花，道路两旁常见
-- **槐角**：清热润肠角，槐树果实常见
-- **槐米**：清热明目米，槐树花蕾常见
-
-### 第十二组：菊花、金银花、玫瑰花
-- **菊花**：疏散风热花，庭院栽培常见
-- **金银花**：清热解毒花，攀援灌木常见
-- **玫瑰花**：理气活血花，庭院栽培常见
-
-### 第十三组：陈皮、青皮、橘红
-- **陈皮**：理气健脾皮，柑橘栽培常见
-- **青皮**：疏肝破气皮，柑橘栽培常见
-- **橘红**：理气宽中皮，柑橘栽培常见
-
-### 第十四组：酸枣仁、柏子仁、火麻仁
-- **酸枣仁**：养心安神仁，山坡林下常见
-- **柏子仁**：养心安神仁，柏树林下常见
-- **火麻仁**：润燥滑肠仁，栽培药材常见
-
-## 使用方法
-
-### 快速启动
-
-1. **使用npm启动（推荐）**：
 ```bash
+git clone https://github.com/xuehaoweng/xhs-yaocai.git
+cd roadside-herb-guide
 npm install
 npm run dev
 ```
 
-2. **使用Python启动**：
-```bash
-npm run start
-```
+浏览器访问 http://localhost:8000
 
-3. **直接打开文件**：
-双击 `index.html` 文件在浏览器中打开
+## AI 草药生成器
 
-### 浏览图鉴
+网站内置 AI 生成器，输入草药名称即可自动生成图鉴页面：
 
-1. 打开对应的HTML文件
-2. 浏览药材图片和说明
-3. 点击右上角"📸 截图"按钮保存图鉴
-4. 分享给朋友或保存到手机
+1. 打开网站，找到页面底部的 **AI 生成器** 区域
+2. 填入你的 [Anthropic API Key](https://console.anthropic.com/)（仅存储在本地浏览器，不会上传）
+3. 输入 1-3 个草药名称，点击生成
+4. 预览结果，一键下载 HTML 文件
 
-## 技术特点
+## 药材目录（14 组 · 42 种）
 
-- **响应式设计**：适配手机和电脑屏幕
-- **现代UI**：采用卡片式布局，美观易读
-- **一键截图**：使用html2canvas库实现页面截图功能
-- **云端图片**：图片存储在腾讯云COS，加载速度快
-
-## 安全提醒
-
-⚠️ **重要提醒**：
-- 遇见请珍惜，勿过度采摘
-- 药用请遵医嘱，不可自行服用
-- 部分药材可能有毒性，请谨慎对待
-- 建议在专业人士指导下使用
+| 组 | 药材 | 文件 |
+|---|---|---|
+| 第一组 | 车前草、蒲公英、艾草 | [herbs-01](herbs-01-cheqiancao-pugongying-aicao.html) |
+| 第二组 | 紫苏、薄荷、金银花 | [herbs-02](herbs-02-zisu-bohe-jinyinhua.html) |
+| 第三组 | 凤仙花、三七、田七 | [herbs-03](herbs-03-fengxianhua-sanqi-tianqi.html) |
+| 第四组 | 夏枯草、益母草、马齿苋 | [herbs-04](herbs-04-xiakucao-yimucao-machixian.html) |
+| 第五组 | 桔梗、虎杖、鱼腥草 | [herbs-05](herbs-05-jiegeng-huzhang-yuxingcao.html) |
+| 第六组 | 灯心草、苍耳子、龙葵 | [herbs-06](herbs-06-dengxincao-cangerzi-longkui.html) |
+| 第七组 | 板蓝根、连翘、野菊花 | [herbs-07](herbs-07-banlangen-lianqiao-yejuhua.html) |
+| 第八组 | 决明子、山楂、枸杞 | [herbs-08](herbs-08-juemingzi-shanzha-gouqi.html) |
+| 第九组 | 白茅根、芦根、淡竹叶 | [herbs-09](herbs-09-baimaogen-lugen-danzhuye.html) |
+| 第十组 | 桑叶、桑葚、桑白皮 | [herbs-10](herbs-10-sangye-sangshen-sangbaipi.html) |
+| 第十一组 | 槐花、槐角、槐米 | [herbs-11](herbs-11-huaihua-huaijiao-huaimi.html) |
+| 第十二组 | 菊花、金银花、玫瑰花 | [herbs-12](herbs-12-juhua-jinyinhua-meiguihua.html) |
+| 第十三组 | 陈皮、青皮、橘红 | [herbs-13](herbs-13-chenpi-qingpi-juhong.html) |
+| 第十四组 | 酸枣仁、柏子仁、火麻仁 | [herbs-14](herbs-14-suanzaoren-baiziren-huomaren.html) |
 
 ## 项目结构
 
 ```
-ai-xhs/
-├── README.md                                    # 项目说明文档
-├── 🌿路边本草图鉴-三步识药材-车前草-蒲公英-艾草.html
-├── 🌿路边本草图鉴-三步识药材-紫苏-薄荷-金银花.html
-├── 🌿路边本草图鉴-三步识药材-凤仙花-三七-田七.html
-├── 🌿路边本草图鉴-三步识药材-夏枯草-益母草-马齿苋.html
-├── 🌿路边本草图鉴-三步识药材-桔梗-虎杖-鱼腥草.html
-└── 🌿路边本草图鉴-三步识药材-灯心草-苍耳子-龙葵.html
+roadside-herb-guide/
+├── index.html                    # 主页（含 AI 生成器）
+├── herbs-01-*.html               # 各组药材图鉴页面
+├── ...
+├── .github/workflows/deploy.yml  # GitHub Pages 自动部署
+├── netlify.toml                  # Netlify 部署配置
+├── vercel.json                   # Vercel 部署配置
+├── package.json
+└── README.md
 ```
-
-## 开发说明
-
-- **前端技术**：HTML5 + CSS3 + JavaScript
-- **图片存储**：腾讯云COS
-- **截图功能**：html2canvas库
-- **设计风格**：现代简约，绿色主题
-
-## 更新计划
-
-- [ ] 添加更多常见药材
-- [ ] 增加药材搜索功能
-- [ ] 添加药材分类导航
-- [ ] 优化移动端体验
-- [ ] 增加药材详情页面
 
 ## 贡献指南
 
-欢迎提交Issue和Pull Request来完善这个项目！
+欢迎提交 Issue 和 Pull Request！
+
+- 新增药材页面：参考现有 `herbs-XX-*.html` 格式，文件名使用拼音
+- 修正内容错误：直接提 PR，注明来源
+- 功能建议：先开 Issue 讨论
+
+详见 [CONTRIBUTING.md](CONTRIBUTING.md)
+
+## 安全提醒
+
+> ⚠️ 遇见请珍惜，勿过度采摘。药用请遵医嘱，不可自行服用。部分药材可能有毒性，请在专业人士指导下使用。
 
 ## 许可证
 
-本项目采用MIT许可证。
-
----
-
-🌱 **让更多人了解身边的中草药，传承中华医药文化** 🌱 
+[MIT License](LICENSE) © 2024 路边本草图鉴项目

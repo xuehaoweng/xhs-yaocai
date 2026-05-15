@@ -20,12 +20,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/roadside-herb-guide.git"
+    "url": "https://github.com/xuehaoweng/xhs-yaocai.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/roadside-herb-guide/issues"
+    "url": "https://github.com/xuehaoweng/xhs-yaocai/issues"
   },
-  "homepage": "https://github.com/your-username/roadside-herb-guide#readme",
+  "homepage": "https://xuehaoweng.github.io/xhs-yaocai",
   "devDependencies": {
     "http-server": "^14.1.1"
   },
